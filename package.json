@@ -1,0 +1,63 @@
+{
+  "name": "usb-qrscanner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iSirThijs/node-usb-qrscanner.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iSirThijs/node-usb-qrscanner/issues"
+  },
+  "homepage": "https://github.com/iSirThijs/node-usb-qrscanner#readme",
+  "dependencies": {
+    "node-hid": "^0.7.8"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  },
+  "eslintIgnore": [
+    "node_modules/"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": false,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  }
+}

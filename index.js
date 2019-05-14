@@ -3,13 +3,7 @@ const EventEmitter = require('events');
 const hidMap = require('./hidmap');
 
 class UsbQRScanner extends EventEmitter {
-	/**
-	 * Where to look for the USB scanner, give either the VID/PID or the path to the device
-	 * @param {object} options
-	 * @param {number} options.vendorID The VID of the USB scanner
-	 * @param {number} options.productID The PID of the USB scanner
-	 * @param {string} options.path The path to the USB scanner
-	 */
+
 	constructor(options) {
 		let { vendorID, productID, path } = options;
 
@@ -48,13 +42,4 @@ class UsbQRScanner extends EventEmitter {
 	}
 }
 
-const options = {
-	vendorID: 7851,
-	productID: 6659
-};
-
-const qrScanner = new UsbQRScanner(options);
-
-qrScanner.on('data', (data) =>  console.log(data)); // eslint-disable-line
-
-qrScanner.startScanning();
+module.export = UsbQRScanner;

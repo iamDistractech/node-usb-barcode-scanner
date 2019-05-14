@@ -2,7 +2,7 @@ const HID = require('node-hid').HID;
 const EventEmitter = require('events');
 const hidMap = require('./hidmap');
 
-class UsbQRScanner extends EventEmitter {
+class UsbScanner extends EventEmitter {
 
 	constructor(options) {
 		let { vendorID, productID, path } = options;
@@ -11,7 +11,7 @@ class UsbQRScanner extends EventEmitter {
 
 		if(path) this.hid = new HID(path);
 		else if (vendorID && productID) this.hid = new HID(vendorID, productID);
-		else console.error('Device cannot be found, please suply a path or VID & PID'); // eslint-disable-line
+		else console.error('Device cannot be found, please supply a path or VID & PID'); // eslint-disable-line
 
 		this._hidMap = hidMap.standard;
 		this._hidMapShift = hidMap.shift;
@@ -42,4 +42,4 @@ class UsbQRScanner extends EventEmitter {
 	}
 }
 
-module.export = UsbQRScanner;
+module.exports = UsbScanner;

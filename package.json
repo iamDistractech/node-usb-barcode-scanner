@@ -1,21 +1,21 @@
 {
-  "name": "usb-qrscanner",
+  "name": "@isirthijs/barcode-scanner",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple wedge barcode scanner module with support for the shift modifier key",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iSirThijs/node-usb-qrscanner.git"
+    "url": "https://github.com/iSirThijs/node-usb-barcode-scanner.git"
   },
-  "author": "",
+  "author": "Thijs Spijker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iSirThijs/node-usb-qrscanner/issues"
+    "url": "https://github.com/iSirThijs/node-usb-barcode-scanner/issues"
   },
-  "homepage": "https://github.com/iSirThijs/node-usb-qrscanner#readme",
+  "homepage": "https://github.com/iSirThijs/node-usb-barcode-scanner#readme",
   "dependencies": {
     "node-hid": "^0.7.8"
   },

@@ -35,11 +35,25 @@ class UsbScanner extends EventEmitter {
 				} else if (characterValue === 40) {
 					let scanResult = barcode.join('');
 					barcode = [];
+					scanResult = removeUTF8(scanResult);
 					this.emit('data', scanResult);
 				}
 			}
 		});
 	}
 }
+
+function removeUTF8(barcode) {
+	let utf8 = barcode.slice(0, 7);
+	if (utf8 === '\\000026') {
+		barcode = barcode.slice(7);
+		return barcode;
+	} else return barcode;
+}
+
+
+
+
+
 
 module.exports = UsbScanner;

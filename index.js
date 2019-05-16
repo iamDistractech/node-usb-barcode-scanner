@@ -1,4 +1,5 @@
 const HID = require('node-hid').HID;
+const devices = require('node-hid').devices();
 const EventEmitter = require('events');
 const hidMap = require('./hidmap');
 
@@ -19,6 +20,11 @@ class UsbScanner extends EventEmitter {
 		// Bind 'this' to the methods
 		this.startScanning = this.startScanning.bind(this);
 	}
+
+	static showDevices() {
+		return devices;
+	}
+
 
 	startScanning() {
 		let barcode = [];
@@ -43,6 +49,7 @@ class UsbScanner extends EventEmitter {
 	}
 }
 
+
 function removeUTF8(barcode) {
 	let utf8 = barcode.slice(0, 7);
 	if (utf8 === '\\000026') {
@@ -50,10 +57,6 @@ function removeUTF8(barcode) {
 		return barcode;
 	} else return barcode;
 }
-
-
-
-
 
 
 module.exports = UsbScanner;

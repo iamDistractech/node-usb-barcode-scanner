@@ -11,4 +11,7 @@ const scanner = new UsbScanner(options);
 
 scanner.on('data', (data) => console.log(data)); //eslint-disable-line
 
+let devices = UsbScanner.showDevices();
+console.log(devices); 
+
 scanner.startScanning();

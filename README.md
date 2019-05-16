@@ -49,13 +49,18 @@ scanner.startScanning()
 
 ## Complete API
 
-### scanner = new UsbScanner({vid, pid})
+### UsbScanner.showDevices()
 
-* Creates a new scanner using the VendorID and ProductID
+* Returns the devices connected to the computer. 
 
-### scanner = new UsbScanner({path})
+### scanner = new UsbScanner(options)
 
-* Creates a new scanner using at the specified path
+* Creates a new scanner using the options
+	* `vendorID` - *number* - the vendorID of the device
+	* `productID` - *number* - the productID of the device
+	* `path` - *string* the path of the devices
+	* `vCardString` -  *boolean* - default: `true` - If true returns vCards as one string, instead of separate strings.
+	* `vCardSeperator` *string* - default: `'|'` - If vCard string is true, this will be used as separation between the strings.
 
 ### scanner.startScanning()
 

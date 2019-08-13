@@ -6,22 +6,23 @@ const hidMap = require('./hidmap');
 class UsbScanner extends EventEmitter {
 
 	constructor(options) {
+		options = options || {};
+
 		let { 
-			vendorID,
-			productID,
-			path,
+			vendorID = undefined,
+			productID = undefined,
+			path = undefined, 
 			vCardString = true,
 			vCardSeperator = '|'
 		} = options;
-		
+
 		super();
 
+		this.vendorID = vendorID;
+		this.productID = productID;
+		this.path = path;
 		this._vCardString = vCardString;
 		this._vCardSeperator = vCardSeperator;
-
-		if(path) this.hid = new HID(path);
-		else if (vendorID && productID) this.hid = new HID(vendorID, productID);
-		else console.error('Device cannot be found, please supply a path or VID & PID'); // eslint-disable-line
 
 		this._hidMap = hidMap.standard;
 		this._hidMapShift = hidMap.shift;
@@ -36,6 +37,14 @@ class UsbScanner extends EventEmitter {
 
 
 	startScanning() {
+		try {
+			if(this.path) this.hid = new HID(path);
+			else if (this.vendorID && this.productID) this.hid = new HID(this.vendorID, this.productID);
+			else throw 'Device cannot be found, please supply a path or VID & PID';
+		} catch(error) {
+			this.emit('error', error);
+		}
+		
 		let scanResult = [];
 		let vCard = [];
 
@@ -71,7 +80,14 @@ class UsbScanner extends EventEmitter {
 				}
 			}
 		});
+		
 	}
+
+	stopScanning() {
+		this.hid.removeAllListeners('data');
+		this.hid.close();
+	}
+
 }
 
 

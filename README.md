@@ -55,7 +55,7 @@ scanner.startScanning()
 
 ### scanner = new UsbScanner(options)
 
-* Creates a new scanner using the options
+* Creates and opens a new scanner using the options
 	* `vendorID` - *number* - the vendorID of the device
 	* `productID` - *number* - the productID of the device
 	* `path` - *string* the path of the devices
@@ -65,6 +65,10 @@ scanner.startScanning()
 ### scanner.startScanning()
 
 * Starts listening for barcodes
+
+### scanner.stopScanning()
+
+* Stops listening for barcodes and closes the HID device.
 
 ### scanner.on('data', functions(data) {})
 

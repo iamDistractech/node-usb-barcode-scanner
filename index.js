@@ -71,7 +71,14 @@ class UsbScanner extends EventEmitter {
 				}
 			}
 		});
+		
 	}
+
+	stopScanning() {
+		this.hid.removeAllListeners('data');
+		this.hid.close();
+	}
+
 }
 
 

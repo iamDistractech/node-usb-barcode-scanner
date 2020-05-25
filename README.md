@@ -1,5 +1,7 @@
 # JS barcode scanner
 
+**Not maintained anymore**
+
 A simple barcode scanner with support for shift modifier key.
 
 This package is specifically written for the Rakinda RD4500R USB barcode scanner, but can be used with other 'wedge' usb barcodescanners
